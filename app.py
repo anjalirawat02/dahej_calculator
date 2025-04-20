@@ -15,5 +15,10 @@ def calculate():
 
     return render_template('index.html', result=result, form_data=data)
 
+# if __name__ == '__main__':
+#     app.run(host='0.0.0.0', port=5000)
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    # Only used for local development; gunicorn will handle production
+    app.run(debug=True)
+
+
