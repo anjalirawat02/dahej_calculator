@@ -17,13 +17,13 @@ def calculate_dahej(data):
     if any(field is None or str(field).strip() == "" for field in required_fields):
         return "All required fields must be filled!"
 
-    dahej = 1000000  # base value (₹10 lakh base)
+    dahej = 300000  # base value (₹3 lakh base)
 
     # Age factor (modifying weight to make age factor less dominant)
     if 20 <= age <= 30:
-        dahej += 200000  # adding 3 lakh for age between 20-30
+        dahej += 100000  # adding 2 lakh for age between 20-30
     elif 30 < age <= 40:
-        dahej += 100000  # adding 1.5 lakh for age between 30-40
+        dahej += 50000  # adding 1.5 lakh for age between 30-40
     else:
         dahej += 10000   # adding 50k for older than 40
 
@@ -50,7 +50,7 @@ def calculate_dahej(data):
 
     # Family size factor (modifying these factors to ensure they don't make too much difference)
     dahej -= brothers * 20000   # 20k for each brother
-    dahej -= sisters * 5000     # 5k deduction for each sister
+    dahej -= sisters * 50000     # 5k deduction for each sister
 
     # Home ownership (adding a reasonable amount for owning a home)
     if home_ownership == "Own":
